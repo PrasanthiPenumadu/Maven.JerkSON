@@ -19,7 +19,6 @@ public List<Integer> numOfOcc() {
         Integer milk=0;
         Integer p1=0;
         Integer p2=0;
-        Integer error=0;
         ItemParser ip=new ItemParser();
     List<Item> list=new ArrayList<>();
     String delims="##";
@@ -40,21 +39,17 @@ public List<Integer> numOfOcc() {
                    p1++;
                else if (i.getPrice() == 1.23)
                    p2++;
-               else
-                   error++;
            }
     }
        List<Integer> alist=new ArrayList<>();
        alist.add(milk);
        alist.add(p1);
        alist.add(p2);
-       alist.add(error);
        return alist;
 }
     public List<Integer> numOfOccBread(){
         Integer bread=0;
         Integer p1=0;
-        Integer error=0;
         ItemParser ip=new ItemParser();
         String delims="##";
         List<Item> list=new ArrayList<>();
@@ -72,20 +67,16 @@ public List<Integer> numOfOcc() {
 
                 if (i.getPrice() == 1.23)
                     p1++;
-                else
-                    error++;
             }
         }
         List<Integer> alist=new ArrayList<>();
         alist.add(bread);
         alist.add(p1);
-        alist.add(error);
         return alist;
     }
     public List<Integer> numOfOccCookies(){
         Integer cookies=0;
         Integer p1=0;
-        Integer error=0;
         ItemParser ip=new ItemParser();
         String delims="##";
         List<Item> list=new ArrayList<>();
@@ -103,14 +94,11 @@ public List<Integer> numOfOcc() {
 
                 if (i.getPrice() == 2.25)
                     p1++;
-                else
-                    error++;
             }
         }
         List<Integer> alist=new ArrayList<>();
         alist.add(cookies);
         alist.add(p1);
-        alist.add(error);
         return alist;
     }
     public List<Integer> numOfOccApples() {
@@ -148,7 +136,6 @@ public List<Integer> numOfOcc() {
         alist.add(errormain);
         return alist;
     }
-
 
     @Override
     public String toString() {
