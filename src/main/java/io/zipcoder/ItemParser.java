@@ -59,4 +59,38 @@ public class ItemParser {
 
         return i;
     }
+    public Item parseSingleItem1(String singleItem) throws ItemParseException {
+        String delims="[;!\\^@%*]";
+        Pattern pattern=Pattern.compile(delims,Pattern.CASE_INSENSITIVE);
+        String singleItem1=singleItem.toLowerCase();
+        String[] al=pattern.split(singleItem1);
+        String nameItem="";
+        String pri="";
+        String type="";
+        String date="";
+        Pattern pname=Pattern.compile("^[@:\\^*%]");
+        for(int i=0;i<al.length;i++){
+            String all[]=al[i].split("[@:\\^*%]");
+            if(all.length!=2)
+                throw new io.zipcoder.utils.ItemParseException();
+            if(all[0].equalsIgnoreCase("name")){
+                nameItem=all[1];}
+            else if(all[0].equalsIgnoreCase("price"))
+                pri =all[1];
+            else if(all[0].equalsIgnoreCase("type"))
+                type =all[1];
+            else if(all[0].equalsIgnoreCase("expiration"))
+                date =all[1];
+        }
+
+
+        Double d= Double.valueOf(pri);
+        Pattern pattern1 = Pattern.compile("[##]");
+        Matcher matcher = pattern1.matcher(date);
+        String number = matcher.replaceAll("");
+        Item i=new Item(nameItem,d,type,number);
+
+        return i;
+    }
+
 }
